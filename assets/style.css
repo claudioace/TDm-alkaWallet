@@ -1,8 +1,6 @@
 *{
     border:solid orange 1px
 }
-#caratula {
-    height: 100vh;
-    padding-top: 20%;
-    background-color: gray;
+body{
+    background-color: darkgrey;
 }
