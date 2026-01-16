@@ -4,3 +4,13 @@
 body{
     background-color: darkgrey;
 }
+.btn-custom{
+    min-width: 90%;
+    min-height: 100px;
+    height: 90%
+}
+#btnDesconectar{
+    min-width: 80%;
+    min-height: 90px;
+    height: 70%
+}
