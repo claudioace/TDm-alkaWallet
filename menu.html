@@ -4,14 +4,90 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alke Wallet</title>
+    <title>Menu - Alke Wallet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-    <h1>pagina menu</h1>
+    <!-- 
+    Implementar una barra de navegación responsive en menu.html.
+    Tarjetas de resumen financiero en (menu.html) con bootstrap
+    Animaciones y transiciones en menu.html para mejorar la UX.
+     -->
+
+
+
+    <header>
+        <nav class="navbar navbar-dark bg-dark sticky-top">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+
+                <div class="d-flex align-items-center">
+                    <p class="fs-5 text-white bg-dark">Hola!, </p>
+                    <p class="fs-5 text-white bg-dark" id="txtNombreUsuario">NombreUsuario</p>
+                </div>
+                <div class=>
+                    <h1 class="text-white">ALKE WALLET</h1>
+                </div>
+                <div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Acceso Rápido</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Información de Saldo</h5>
+    <p class="card-text">Tu saldo al día <span id="fechaActual" class="fw-bold ">FechaActual</span>
+        <input type="text" class="form-control-plaintext fw-bold fs-4" value="123.456" id = "saldoActual" readonly>
+    </p>
+  </div>
+</div>
+        </div>
+    </main>
 
     <script src="./assets/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
