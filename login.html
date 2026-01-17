@@ -20,13 +20,59 @@
             <div class="mb-3">
                 <label for="inputPassword" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="inputPassword">
+                <input type="checkbox" class="btn-check btn-check-class" id="chckMostrarLog" autocomplete="off" >
+                <label class="btn btn-outline-secondary btn-sm m-1" for="chckMostrarLog">Mostrar contraseña</label>                
                 <div id="emailHelp" class="form-text">Nunca compartas tu contraseña con nadie.</div>
             </div>
 
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         </form>
-        <p class="d-flex justify-content-end"><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Regístrate gratis</a></p>
+<p class="d-flex justify-content-end">
+  <button type="button" class="btn btn-link link-offset-2 link-underline link-underline-opacity-0" 
+          data-bs-toggle="modal" data-bs-target="#modalRegistro">
+    Regístrate gratis
+  </button>
+</p>
     </div>
+
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registro de Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formRegistro">
+          <div class="mb-3">
+            <label for="nombreReg" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreReg" placeholder="Ingresa tu nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="apellidoReg" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellidoReg" placeholder="Ingresa tu apellido" required>
+          </div>
+          <div class="mb-3">
+            <label for="emailReg" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailReg" placeholder="correo@ejemplo.cl" required>
+          </div>
+          <div class="mb-3">
+            <label for="passwordReg" class="form-label">Contraseña</label> 
+            <input type="password" class="form-control" id="passwordReg"  required>
+            
+            <input type="checkbox" class="btn-check btn-check-class" id="chckMostrarReg" autocomplete="off" >
+            <label class="btn btn-outline-secondary btn-sm m-1" for="chckMostrarReg">Mostrar contraseña</label>
+          </div>  
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary" id="btnRegistrar">Registrar</button>
+        </div>        
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
 </main>
 
     

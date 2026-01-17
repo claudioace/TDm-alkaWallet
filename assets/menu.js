@@ -3,7 +3,8 @@ $(document).ready(function () {
     const saldoActual = $('#saldoActual');
     const fechaActual = $('#fechaActual');
     const nombreUsuario = $('#txtNombreUsuario');
-    const btnlogout = $('#btnDesconectar');
+    const btnlogout = $('.btnDesconectar');
+    const saldoQuick = $('#saldoQuick');
 
     function pesosSaldo(numero) {
         numero = parseFloat(numero);
@@ -33,7 +34,9 @@ $(document).ready(function () {
         ]
         return dia + '-' + mmm[mes]
     };
+    
     nombreUsuario.text(getName);
+
     btnlogout.click(function(){
 //!!!!!logica Cerrar sesion (primero cierra sesion y luego envía al login.)
         window.location.href = 'login.html'
@@ -42,6 +45,7 @@ $(document).ready(function () {
 
 
     saldoActual.val(pesosSaldo(getSaldo()));
+    saldoQuick.text(pesosSaldo(getSaldo()))
     fechaActual.text(fechaHoy()+':');
     nombreUsuario.text(', '+getName())
 

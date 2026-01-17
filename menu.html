@@ -23,14 +23,14 @@
     <header>
         <nav class="navbar navbar-dark bg-dark sticky-top">
             <div class="container-fluid d-flex justify-content-between align-items-center">
-
+                <div>
+                    <h1 class="text-white">ALKE WALLET</h1>
+                </div>
                 <div class="d-flex align-items-center">
                     <p class="fs-5 text-white bg-dark">Hola!</p>
                     <p class="fs-5 text-white bg-dark" id="txtNombreUsuario">NombreUsuario</p>
                 </div>
-                <div class=>
-                    <h1 class="text-white">ALKE WALLET</h1>
-                </div>
+
                 <div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
@@ -48,32 +48,47 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house"></i>Menú
+                                <a class="nav-link active" aria-current="page" href="menu.html"><i class="bi bi-house"></i>Menú
                                     Principal</a>
                             </li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    Dropdown
+                                    <i class="bi bi-cash-coin"></i> Finanzas
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
                                     <li>
-                                        <hr class="dropdown-divider">
+                                        <a class="dropdown-item" href="transactions.html">
+                                            <i class="bi bi-graph-up-arrow"></i>
+                                            Saldo:
+                                            <span id="saldoQuick">Actual</span>
+                                        </a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="deposit.html">
+                                            <i class="bi bi-currency-dollar"></i>
+                                            <i class="bi bi-currency-euro"></i>
+                                            Depositar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="sendmoney.html">
+                                            <i class="bi bi-fast-forward"></i>
+                                            Enviar
+                                        </a>
+                                    </li>
+                                    
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link btnDesconectar" href="#">
+                                    <i class="bi bi-box-arrow-left"></i>
+                                    Desconectar
+                                </a>
                             </li>
                         </ul>
-                        <form class="d-flex mt-3" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button class="btn btn-success" type="submit">Search</button>
-                        </form>
+
                     </div>
                 </div>
             </div>
@@ -94,7 +109,7 @@
             <div class="row text-center p-2 g-2 align-items-center">
                 <div class="col-6 col-sm-3">
                     <a href="/deposit.html">
-                        <button type="button" class="btn btn-warning btn-custom rounded-4" id="btnDepositar">
+                        <button type="button" class="btn btn-success btn-custom rounded-4" id="btnDepositar">
                             <i class="bi bi-currency-dollar fs-1"></i>
                             <i class="bi bi-currency-euro fs-1"></i>
                             <br>
@@ -121,8 +136,8 @@
                 </div>
                 <div class="col-6 col-sm-3">
 
-                    <button type="button" class="btn btn-secondary btn-custom rounded-4" id="btnDesconectar"><i
-                            class="bi bi-box-arrow-left fs-1"></i>
+                    <button type="button" class="btn btn-secondary btn-custom rounded-4 btnDesconectar">
+                        <i class="bi bi-box-arrow-left fs-1"></i>
                         <br>
                         Desconectar
                     </button>
