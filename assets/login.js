@@ -6,19 +6,27 @@ const passReg = $('#passwordReg');
 const passLog = $('#inputPassword');
 const modal = $('#modalRegistro');
 
+let activeUser = {}; //para almacenar datos entre páginas
+
+
     formLogin.on('submit', function(e){
         e.preventDefault();
         const email = $('#inputEmail').val();
         const pass = passLog.val();
-        const usuarioValido = false;
+
 
         const users = getUsers();
         const storedUser = users.find((user) => user.email === email);
+        
 
         if (storedUser && storedUser.password === pass){
+            activeUser = {...storedUser}; //genero un usuario activo para consultar
+            localStorage.setItem('activeUser', JSON.stringify(activeUser)); //almaceno ese usuario activo y todos sus cambios
             this.reset;
             window.location.href = 'menu.html';
+            
         };
+        
     });
 
     function getUsers() {
@@ -40,12 +48,15 @@ const modal = $('#modalRegistro');
         const email = $('#emailReg').val();
         const pass = $('#passwordReg').val();
 
-        //genera un objeto userdata
+        //genera un objeto userdata (saldo, historial, etc)
         const userData = {
             name: name,
             lastName: lastName,
             email: email,
             password: pass,
+            saldo: 0,
+            transacciones : {},
+            contactos: {},
         };
         
         //llama a la funcion get user para guardar en localstorage
@@ -53,8 +64,9 @@ const modal = $('#modalRegistro');
         users.push(userData);
         localStorage.setItem("users", JSON.stringify(users));
         this.reset();        
-        console.log(users);
+
         
+        modal.modal('hide');
     });
 
     //memo: estos permiten ver u ocultar el password 
