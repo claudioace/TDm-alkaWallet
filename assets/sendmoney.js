@@ -1,12 +1,13 @@
 $(document).ready(function () {
-
     const saldoActual = $('#saldoActual');
     const nombreUsuario = $('#txtNombreUsuario');
     const btnlogout = $('.btnDesconectar');
     const saldoQuick = $('#saldoQuick');
-    const deposito = $('#inputDeposito');
+    const envio = $('#inputSend');
     const monto = $('#confMonto');
-    const formDepositar = $('#formDeposito');
+    const formEnvio = $('#formSend');
+    const btnNuevoContacto = $('#agregarContacto');
+    const formNuevoContacto = $('#formAgregar');
 
     function getActiveUser() {
         //transfiere datos del local storae al usuario activo
@@ -43,13 +44,6 @@ $(document).ready(function () {
         return 'Usuario';
     };
 
-    function getContactos() {
-        const activeUser = getActiveUser();
-        if (activeUser && Array.isArray(activeUser.contactos)) {
-            return activeUser.contactos;
-        }
-        return [];
-    };
     function fechaHoy() {
         const fecha = new Date();
         const dia = fecha.getDate();
@@ -64,14 +58,15 @@ $(document).ready(function () {
         return dia + '-' + mmm[mes] + '-' + anho
     };
 
-    // Función para sincronizar activeUser con users
+   
+// Función para sincronizar activeUser con users
     function sincronizarEnDB() {
         const activeUser = getActiveUser();
         let users = JSON.parse(localStorage.getItem('users')) || [];
         //0. encntra al usuario activo dentro el array de users, usando su email
         //obs: encuentra su posicion en el array
         const userIndex = users.findIndex(user => user.email === activeUser.email);
-
+        
         // 1.Reemplazar los datos del usuario encontrado con los del activeUser
         users[userIndex] = { ...activeUser };
 
@@ -84,35 +79,41 @@ $(document).ready(function () {
         window.location.href = 'login.html';
     });
 
+    btnNuevoContacto.on('click', function() {
+    $('#modalAgregar').modal('show');
+  });
+
+  //crear nuevo contacto
+  formNuevoContacto.on('submit', function(e) {
+    e.preventDefault();
+    const nombre = $('#nombreNuevoC').val();
+    const apellido = $('#apellidoNuevoC').val();
+    const alias = $('#aliasNuevoC').val();
+    const email = $('#emailNuevoC').val();
+
+    const activeUser = getActiveUser();
+    const emailExiste = activeUser.contactos.some(contacto => contacto.email === email);
+    //validacion para evitar contacto duplicado (solo valido por email)
+    if (emailExiste) {
+      alert('Ya existe un contacto con este email. Por favor, usa un email diferente.');
+      return; 
+    }
+    
+    const nuevoContacto = {
+      nombre: nombre,
+      apellido: apellido,
+      alias: alias,
+      email: email
+    };
+    activeUser.contactos.push(nuevoContacto);
+    localStorage.setItem('activeUser', JSON.stringify(activeUser));
+    sincronizarEnDB();
+    this.reset();
+    location.reload();
+
+  });
+
     saldoActual.text(pesosSaldo(getSaldo()));
     saldoQuick.text(pesosSaldo(getSaldo()));
-    nombreUsuario.text(', ' + getName());
-
-    deposito.on('input', function () {
-        let valor = $(this).val();
-        let numero = parseFloat(valor);
-        monto.text(pesosSaldo(numero))
-    });
-
-    formDepositar.on('submit', function (e) {
-        e.preventDefault();
-        const montoValor = parseFloat(deposito.val());
-        const activeUser = getActiveUser();
-
-        if (!activeUser) {
-            alert('No hay usuario activo. Inicia sesión primero.');
-            return;
-        }
-        //registrando deatos del deposito
-        const fechaActual = fechaHoy();
-        const nuevaTransaccion = [fechaActual, "Depósito", "-", montoValor];
-        activeUser.transacciones.push(nuevaTransaccion);
-        activeUser.saldo += montoValor;
-        localStorage.setItem('activeUser', JSON.stringify(activeUser));
-        sincronizarEnDB();
-        this.reset();
-        location.reload();
-
-    })
-
+    nombreUsuario.text(', ' + getName());    
 });

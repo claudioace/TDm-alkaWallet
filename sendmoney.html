@@ -7,56 +7,253 @@
     <title>Alke Wallet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-    <style></style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+
 </head>
+<header>
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="text-white">ALKE WALLET</h1>
+            </div>
+            <div class="d-flex align-items-center">
+                <p class="fs-5 text-white bg-dark">Hola!</p>
+                <p class="fs-5 text-white bg-dark" id="txtNombreUsuario">NombreUsuario</p>
+            </div>
+
+            <div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Acceso Rápido</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="menu.html"><i
+                                    class="bi bi-house"></i>Menú
+                                Principal</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="bi bi-cash-coin"></i> Finanzas
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li>
+                                    <a class="dropdown-item" href="transactions.html">
+                                        <i class="bi bi-graph-up-arrow"></i>
+                                        Saldo:
+                                        <span id="saldoQuick">Actual</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="deposit.html">
+                                        <i class="bi bi-currency-dollar"></i>
+                                        <i class="bi bi-currency-euro"></i>
+                                        Depositar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="sendmoney.html">
+                                        <i class="bi bi-fast-forward"></i>
+                                        Enviar
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btnDesconectar" href="#">
+                                <i class="bi bi-box-arrow-left"></i>
+                                Desconectar
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <body>
-    <div class="container w-80">
-        <h2 class="text-center">Enviar Dinero</h2>
-        <form>
-            <div class="mb-3">
-                <label for="inputBuscar">Buscar en la agenda:</label>
-                <input type="text" class="form-control" id="inputBuscar"
-                    placeholder="Buscar por nombre, apellido, alias o dirección" />
+    <div class="container my-4">
+        <div class="mb-3">
+            <input type="text" class="form-control" id="buscarContacto" placeholder="Buscar contacto...">
+        </div>
+        <div style="max-height: 50vh; overflow-y: auto;">
+            <table class="table table-striped table-hover" id="agenda">
+                <thead class="table-dark sticky-top" style="z-index: 1000">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Alias</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>JD</td>
+                        <td>jdoe@unknown.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3">
+            <a href="menu.html" class="btn btn-secondary">Volver al Menú</a>
+            <button class="btn btn-primary" id="agregarContacto">+ Agregar Contacto</button>
+        </div>
+    </div>
+    <!-- Modal Agrgar Contacto -->
+    <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAgregarLabel">Agregar Contacto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAgregar">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombreNuevoC" placeholder="Nombre de contacto"
+                                required>
+                            <label for="nombreNuevoC" class="form-label">Nombre</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="textNuevoC" class="form-control" id="apellidoNuevoC"
+                                placeholder="Apellido de contacto" required>
+                            <label for="apellido" class="form-label">Apellido</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="aliasNuevoC" placeholder="Alias de contacto"
+                                required>
+                            <label for="aliasNuevoC" class="form-label">Alias</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailNuevoC" placeholder="correo@ejemplo.cl"
+                                required>
+                            <label for="emailNuevoC" class="form-label">Email</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" id="btnAgregar">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
-            <button type="submit" class="btn btn-success my-1">
-                Enviar dinero
-            </button>
-            <div class="list-group w-50">
-                <button type="button" class="list-group-item list-group-item-action">
-                    <p>
-                        Nombre: Ramón Valdés. Alias: Don Ramon. Dirección: Enrique
-                        Segoviano #1973, casa 72
-                    </p>
-                    <a href="#" class="text-secondary">ver mas...</a>
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">
-                    <p>
-                        Nombre: Clotilde Fernández. Alias: Doña Clotilde. Dirección:
-                        Enrique Segoviano #1973, casa 71
-                    </p>
-                    <a href="#" class="text-secondary">ver mas...</a>
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">
-                    <p>
-                        Nombre: Zenón Barriga y Pesado. Alias: Sr. barriga. Dirección: No
-                        informa
-                    </p>
-                    <a href="#" class="text-secondary">ver mas...</a>
-                </button>
-            </div>
-            <button type="submit" class="btn btn-primary mt-2">
-                + Agregar nuevo contacto
-            </button>
-        </form>
-        <a href="menu.html" class="btn btn-secondary my-3">Volver al Menú Principal</a>
+        </div>
     </div>
 
     <script src="./assets/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="./assets/deposit.js"></script>
+    <script src="./assets/sendmoney.js"></script>
 </body>
 
 </html>
