@@ -19,6 +19,10 @@ body {
 #customInput {
     width: 100%;
 }
+.fila-contacto {
+  cursor: pointer;
+  user-select: none;  /* Evita seleccionar texto */
+}
 
 @media (min-width: 768px) {
     #customInput {

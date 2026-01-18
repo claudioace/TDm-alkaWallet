@@ -43,13 +43,6 @@ $(document).ready(function () {
         return 'Usuario';
     };
 
-    function getContactos() {
-        const activeUser = getActiveUser();
-        if (activeUser && Array.isArray(activeUser.contactos)) {
-            return activeUser.contactos;
-        }
-        return [];
-    };
     function fechaHoy() {
         const fecha = new Date();
         const dia = fecha.getDate();

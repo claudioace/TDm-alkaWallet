@@ -93,7 +93,7 @@
             <input type="text" class="form-control" id="buscarContacto" placeholder="Buscar contacto...">
         </div>
         <div style="max-height: 50vh; overflow-y: auto;">
-            <table class="table table-striped table-hover" id="agenda">
+            <table class="table table-hover" id="agenda">
                 <thead class="table-dark sticky-top" style="z-index: 1000">
                     <tr>
                         <th>Nombre</th>
@@ -103,102 +103,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>JD</td>
-                        <td>jdoe@unknown.com</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -248,6 +153,28 @@
             </div>
         </div>
     </div>
+
+<!-- Modal para confirmar envío -->
+<div class="modal fade" id="modalEnvio" tabindex="-1" aria-labelledby="modalEnvioLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEnvioLabel">Confirmar Envío</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="textoEnvio">¿Transferir a ...?</p>
+        <p>Saldo actual: <span id="saldoActual"></span></p>
+        <label for="inputSend" class="form-label">Monto a enviar:</label>
+        <input type="number" class="form-control" id="inputSend" min="0.00" max="999999.99" step="0.01" placeholder="0.00">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmarEnvio">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script src="./assets/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
