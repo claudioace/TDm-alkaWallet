@@ -1,33 +1,64 @@
-/*
-*{
-    border:solid orange 1px
+
+
+.navbar {
+    border: solid orange 3px;
+    
 }
-*/
+body{
+    padding-top: 90px;
+    padding-bottom: 45px;
+}
+.navbar i {
+color: orange;
+}
 body {
-    background-color: darkgrey;
+    min-height: 100vh;
+    background: #B4B4B4;
+    background: linear-gradient(166deg, rgba(180, 180, 180, 1) 0%, rgba(33, 37, 41, 1) 100%);
+    
+
 }
+
 .btn-custom {
     min-width: 90%;
     min-height: 100px;
     height: 90%;
+}
+
+.btn-secondary {
+    border: solid whitesmoke 1px
+}
+
+.btn-link{
+    color: orange;
 }
 #btnDesconectar {
     min-width: 80%;
     min-height: 90px;
     height: 70%
 }
+
 #customInput {
     width: 100%;
 }
+
 .fila-contacto {
-  cursor: pointer;
-  user-select: none;  /* Evita seleccionar texto */
+    cursor: pointer;
+    user-select: none;
+    /* Evita seleccionar texto */
 }
 
 @media (min-width: 768px) {
     #customInput {
         width: 50%;
     }
+};
+@keyframes palpitar {
+  0%, 100% {
+    transform: scale(1); 
+  }
+  50% {
+    transform: scale(1.5);  
+  }
 }
-
 ;
