@@ -55,8 +55,8 @@ let activeUser = {}; //para almacenar datos entre páginas
             email: email,
             password: pass,
             saldo: 0,
-            transacciones : {},
-            contactos: {},
+            transacciones : [],
+            contactos: [],
         };
         
         //llama a la funcion get user para guardar en localstorage
